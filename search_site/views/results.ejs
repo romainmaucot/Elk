@@ -1,0 +1,40 @@
+<a href="/" >homepage</a>
+
+<h1>
+search results
+</h1>
+
+<ul>
+<% books.forEach((book) => { %>
+  <li>
+    <h3><%= book._source.title %></h3>
+    <br>
+    Authors :<% book._source.authors.forEach((author) => { %>
+    <%= author.name %>
+    <% }) %>
+
+    <br>
+    Download <%= book._source.download_count %> times
+
+
+    <br>
+
+    Subjects :<% book._source.subjects.forEach((subject) => { %>
+        <%= subject %>
+        <% }) %>
+
+    <br>
+
+    Type :<% book._source.bookshelves.forEach((bookshelve) => { %>
+            <%= bookshelve %>
+            <% }) %>
+
+    <br>
+
+    Languages :<% book._source.languages.forEach((languages) => { %>
+            <%= languages %>
+            <% }) %>
+
+  </li>
+<% }) %>
+</ul>
